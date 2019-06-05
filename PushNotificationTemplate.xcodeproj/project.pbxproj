@@ -12,6 +12,8 @@
 		F00EE6E822A7F36F00A97954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00EE6E622A7F36F00A97954 /* Main.storyboard */; };
 		F00EE6EA22A7F37200A97954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00EE6E922A7F37200A97954 /* Assets.xcassets */; };
 		F00EE6ED22A7F37200A97954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00EE6EB22A7F37200A97954 /* LaunchScreen.storyboard */; };
+		F00EE6F522A7F48800A97954 /* PushNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EE6F422A7F48800A97954 /* PushNotificationHandler.swift */; };
+		F00EE6F922A7F4CF00A97954 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EE6F822A7F4CF00A97954 /* PushNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		F00EE6E922A7F37200A97954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F00EE6EC22A7F37200A97954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F00EE6EE22A7F37200A97954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00EE6F422A7F48800A97954 /* PushNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHandler.swift; sourceTree = "<group>"; };
+		F00EE6F822A7F4CF00A97954 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		F0657DE722A816B50013D304 /* PushNotificationTemplate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotificationTemplate.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +59,41 @@
 		F00EE6E122A7F36F00A97954 /* PushNotificationTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F0657DE722A816B50013D304 /* PushNotificationTemplate.entitlements */,
+				F00EE6F622A7F4A000A97954 /* model */,
+				F00EE6F722A7F4A800A97954 /* handler */,
+				F0657DE622A815850013D304 /* viewController */,
 				F00EE6E222A7F36F00A97954 /* AppDelegate.swift */,
-				F00EE6E422A7F36F00A97954 /* ViewController.swift */,
-				F00EE6E622A7F36F00A97954 /* Main.storyboard */,
 				F00EE6E922A7F37200A97954 /* Assets.xcassets */,
 				F00EE6EB22A7F37200A97954 /* LaunchScreen.storyboard */,
 				F00EE6EE22A7F37200A97954 /* Info.plist */,
 			);
 			path = PushNotificationTemplate;
+			sourceTree = "<group>";
+		};
+		F00EE6F622A7F4A000A97954 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F00EE6F822A7F4CF00A97954 /* PushNotification.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F00EE6F722A7F4A800A97954 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				F00EE6F422A7F48800A97954 /* PushNotificationHandler.swift */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		F0657DE622A815850013D304 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				F00EE6E422A7F36F00A97954 /* ViewController.swift */,
+				F00EE6E622A7F36F00A97954 /* Main.storyboard */,
+			);
+			path = viewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +128,14 @@
 				TargetAttributes = {
 					F00EE6DE22A7F36F00A97954 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F00EE6F922A7F4CF00A97954 /* PushNotification.swift in Sources */,
+				F00EE6F522A7F48800A97954 /* PushNotificationHandler.swift in Sources */,
 				F00EE6E522A7F36F00A97954 /* ViewController.swift in Sources */,
 				F00EE6E322A7F36F00A97954 /* AppDelegate.swift in Sources */,
 			);
@@ -282,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PushNotificationTemplate/PushNotificationTemplate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79B3399HR9;
 				INFOPLIST_FILE = PushNotificationTemplate/Info.plist;
@@ -300,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PushNotificationTemplate/PushNotificationTemplate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79B3399HR9;
 				INFOPLIST_FILE = PushNotificationTemplate/Info.plist;
